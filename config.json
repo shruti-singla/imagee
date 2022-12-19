@@ -1,0 +1,10 @@
+{
+  "path": {
+    "source": "public/images",
+    "destination": "public/images-compressed"
+  },
+  "image": {
+    "quality": 30,
+    "smooth": 60
+  }
+}

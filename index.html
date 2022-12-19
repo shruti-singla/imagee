@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Img Sizer</title>
+
+    <meta name="description" content="Fast and easy image compressor." />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="theme-color" content="#fafafa" />
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 50px;
+      }
+      p {
+        font-size: 28px;
+      }
+      body {
+        background-color: rgb(183, 244, 244);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Image Compressor</h1>
+    <p style="text-align: left">
+      <i><b>Type of images allowed.</b></i>
+    </p>
+
+    <p style="text-align: left">
+      <b><i> * .jpg </i></b>
+    </p>
+    <p style="text-align: left">
+      <b><i> * .jpeg</i></b>
+    </p>
+    <p style="text-align: left">
+      <b><i> * .png</i></b>
+    </p>
+
+    <br />
+    <br />
+    <h4>Insert your image here...</h4>
+    <form action="/fatch/img" method="post" name="img-uploader" enctype="multipart/form-data">
+      <label for="file">
+        <button class="btn">
+          <svg
+            width="4em"
+            height="4em"
+            viewBox="0 0 16 16"
+            class="bi bi-plus"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+        </button>
+        <input type="file" name="file" id="file" multiple />
+      </label>
+    </form>
+
+    <div style="text-align: center; padding-top: 1rem; opacity: 0.8" id="msg"></div>
+  </body>
+
+  <script>
+    document.forms['img-uploader'].addEventListener('change', function (event) {
+      let form = this;
+      let files = this.elements.file.files;
+
+      document.querySelector('#msg').innerHTML = files.length + 'files(s) selected.';
+      setTimeout(function () {
+        form.submit();
+      }, 2000);
+    });
+  </script>
+</html>
